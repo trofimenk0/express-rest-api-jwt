@@ -18,9 +18,11 @@
   },
   "homepage": "https://github.com/trofimenk0/express-rest-api-jwt#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "joi": "^17.6.0",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.3.5"
   },
   "devDependencies": {
