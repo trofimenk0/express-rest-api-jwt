@@ -17,7 +17,7 @@ router.post('/register', async (req, res) => {
 
     const userExist = await User.findOne({ email: req.body.email });
     if (userExist) {
-        return res.status(400).send('User is already exist!');
+        return res.status(409).send('User is already exist!');
     }
 
     // Hash passwords
@@ -34,7 +34,7 @@ router.post('/register', async (req, res) => {
         const savedUser = await user.save();
         res.send(savedUser);
     } catch (err) {
-        res.status(400).send(err);
+        res.status(500).send(err);
     }
 });
 
@@ -46,7 +46,7 @@ router.post('/login', async (req, res) => {
 
     const user = await User.findOne({ email: req.body.email });
     if (!user) {
-        return res.status(400).send('User is not exist!');
+        return res.status(409).send('User is not exist!');
     }
 
     // Check password
